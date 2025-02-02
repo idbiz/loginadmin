@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 text: "Login successful",
                 icon: "success"
             }).then(() => {
-                window.location.href = "https://www.id.biz.id/admin/";
+                window.location.href = "https://id.biz.id/admin/";
             });
         } catch (error) {
             console.error("Error logging in:", error);
