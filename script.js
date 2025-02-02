@@ -6,7 +6,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const password = document.querySelector(".login-container input[type='password']").value;
         
         if (!email || !password) {
-            swal("Error", "Please fill in all fields", "error");
+            Swal.fire({
+                title: "Error",
+                text: "Please fill in all fields",
+                icon: "error"
+            });
             return;
         }
         
@@ -24,12 +28,20 @@ document.addEventListener("DOMContentLoaded", function () {
             const data = await response.json();
             document.cookie = `login=${data.token}; path=/;`; // Store token in cookie
             
-            swal("Success", "Login successful", "success").then(() => {
+            Swal.fire({
+                title: "Success",
+                text: "Login successful",
+                icon: "success"
+            }).then(() => {
                 window.location.href = "https://www.id.biz.id/admin/";
             });
         } catch (error) {
             console.error("Error logging in:", error);
-            swal("Error", "Invalid email or password", "error");
+            Swal.fire({
+                title: "Error",
+                text: "Invalid email or password",
+                icon: "error"
+            });
         }
     });
 });
